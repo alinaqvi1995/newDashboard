@@ -14,14 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
 
 // Roles
 // Route::get('/roles', [App\Http\Controllers\AdminController::class, 'roles'])->name('admin.role');
@@ -31,12 +29,13 @@ Route::get('/create', [App\Http\Controllers\AdminController::class, 'create'])->
 // Route::get('/roles/destroy/{id}', [App\Http\Controllers\AdminController::class, 'destroyRole'])->name('admin.destroyRole');
 
 Route::prefix('/admin')->group(function () {
-    Route::middleware(['checkadmin'])->group(
+    Route::middleware(['auth'])->group(
         function () {
 
             Route::get('/', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('admin.dashboard');
-            Route::get('/check', [App\Http\Controllers\AdminController::class, 'createaaa'])->name('admin.check');
-            
+            Route::get('/equifax', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+            Route::POST('/equifax/create', [App\Http\Controllers\AdminController::class, 'credit_report'])->name('admin.create.credit_report');
+
         }
     );
 });
