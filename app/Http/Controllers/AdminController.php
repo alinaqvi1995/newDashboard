@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\CreditReport;
 use Illuminate\Http\Request;
-use App\Traits\phpcUrl;
+use App\Traits\phpcURL;
 
 class AdminController extends Controller
 {
-    use phpcUrl;
+    use phpcURL;
     public function create(Request $request)
     {
         // dd($request->toArray());
