@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" {{-- @if (Route::is('admin')) class="nav-link active " @else class="nav-link" @endif --}}>
+                        <a href="{{ route('admin.create') }}" {{-- @if (Route::is('admin')) class="nav-link active " @else class="nav-link" @endif --}}>
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Create
