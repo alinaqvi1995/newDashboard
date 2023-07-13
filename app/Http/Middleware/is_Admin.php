@@ -19,7 +19,6 @@ class is_Admin
     {
         if(Auth::check())
         {
-            dd(Auth::check());
             if(Auth::user()->role == 1){
                 return $next($request);
             }else{
