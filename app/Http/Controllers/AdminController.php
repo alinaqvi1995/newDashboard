@@ -8,8 +8,8 @@ class AdminController extends Controller
 {
     public function create(Request $request)
     {
-        dd($request->toArray());
-        // return view('dashboard.adminpanel.pages.roles.index');
+        // dd($request->toArray());
+        return view('dashboard.adminpanel.pages.create.create');
     }
     public function createaaa()
     {

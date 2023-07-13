@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+
 // Roles
 // Route::get('/roles', [App\Http\Controllers\AdminController::class, 'roles'])->name('admin.role');
 // Route::get('/roles/new', [App\Http\Controllers\AdminController::class, 'addRole'])->name('admin.addRole');
