@@ -34,7 +34,7 @@
                     <li class="nav-header">Main</li>
                     <li class="nav-item">
                         <a href="" {{-- @if (Route::is('admin')) class="nav-link active " @else class="nav-link" @endif --}}>
-                            {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
                             </p>
@@ -42,7 +42,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="" {{-- @if (Route::is('admin')) class="nav-link active " @else class="nav-link" @endif --}}>
-                            {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Create
                             </p>

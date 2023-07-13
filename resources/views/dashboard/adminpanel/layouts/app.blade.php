@@ -12,21 +12,30 @@
 
     <!-- All CSS -->
     <link rel="stylesheet" href="{{ asset('admin_dashboard/assets/css/app.css') }}">
+    
     <link rel="stylesheet" href="{{ asset('admin_dashboard/assets/css/summernotestyle.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('public/admin_dashboard/assets/css/app.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('public/admin_dashboard/assets/css/summernotestyle.min.css') }}"
-        rel="stylesheet"> --}}
-
-
-    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
-
-
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> --}}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
+        integrity="sha512-gMjQeDaELJ0ryCI+FtItusU9MkAifCZcGq789FrzkiM49D8lbDhoaUaIX4ASU187wofMNlgBJ4ckbrXM9sE6Pg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
+        .nav-sidebar > .nav-item > a {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-sidebar > .nav-item > a > p {
+            margin-bottom: 0;
+        }
+
+        .nav-sidebar > .nav-item  {
+            margin-bottom: 14px;
+        }
+
+
         .ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred p {
             color: #000;
         }
@@ -39,42 +48,42 @@
         img.figure-img.img-fluid.rounded.img-thumbnail {
             width: 350px;
         }
-        .select2-container--default .select2-selection--single
-    {
-        background-color: #202940 !important;
-        color: #fff !important;
-    }
-    .select2-container--default .select2-selection--single .select2-selection__rendered
-    {
-        color: #fff !important;
 
-    }
-    .select2-dropdown
-    {
-        background-color: #202940 !important;
+        .select2-container--default .select2-selection--single {
+            background-color: #202940 !important;
+            color: #fff !important;
+        }
 
-    }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice__display
-    {
-      color: #000;
-    }
-    .select2-container--default .select2-selection--multiple .select2-selection__choice
-    {
-        color: #000 !important;
-    }
-    .select2-selection__choice__display
-    {
-        color: #000 !important;
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #fff !important;
 
-    }
-    .select2-container--default.select2-container--focus .select2-selection--multiple
-    {
-      background-color: #2f3439;
-    }
-    .select2-container--default .select2-selection--multiple
-    {
-      background-color: #2f3439 !important;
-    }
+        }
+
+        .select2-dropdown {
+            background-color: #202940 !important;
+
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+            color: #000;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            color: #000 !important;
+        }
+
+        .select2-selection__choice__display {
+            color: #000 !important;
+
+        }
+
+        .select2-container--default.select2-container--focus .select2-selection--multiple {
+            background-color: #2f3439;
+        }
+
+        .select2-container--default .select2-selection--multiple {
+            background-color: #2f3439 !important;
+        }
     </style>
     @yield('head_style')
 
@@ -116,11 +125,11 @@
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script> --}}
 
-    <script src="{{ asset('public/admin_dashboard/assets/js/app.js') }}"></script>
+    <script src="{{ asset('admin_dashboard/assets/js/app.js') }}"></script>
 
-    <script src="{{ asset('public/admin_dashboard/assets/js/sweetalert.js') }}"></script>
+    <script src="{{ asset('admin_dashboard/assets/js/sweetalert.js') }}"></script>
 
-    <script src="{{ asset('public/admin_dashboard/assets/js/summernote.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard/assets/js/summernote.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
 
