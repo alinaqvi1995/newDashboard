@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Support\Str;
 
-trait phpcUrl
+trait phpcURL
 {
     public $baseurl = "https://api-sandbox.stitchcredit.com/api/";
     public function postCurl($url,$req,$auth = null)
