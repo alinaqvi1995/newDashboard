@@ -28,21 +28,21 @@ class AppSettingController extends Controller
      * @param string $loc
      * @return \Illuminate\Http\Response
      */
-    public function uploadImage($fileData, $loc)
-    {
-        // Get file name with extension
-        $fileNameWithExt = $fileData->getClientOriginalName();
-        // Get just file name
-        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        // Get just extension
-        $fileExtension = $fileData->extension();
-        // File name to store
-        $fileNameToStore = time() . '.' . $fileExtension;
-        // Finally Upload Image
-        $fileData->storeAs($loc, $fileNameToStore);
+    // public function uploadImage($fileData, $loc)
+    // {
+    //     // Get file name with extension
+    //     $fileNameWithExt = $fileData->getClientOriginalName();
+    //     // Get just file name
+    //     $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+    //     // Get just extension
+    //     $fileExtension = $fileData->extension();
+    //     // File name to store
+    //     $fileNameToStore = time() . '.' . $fileExtension;
+    //     // Finally Upload Image
+    //     $fileData->storeAs($loc, $fileNameToStore);
 
-        return $fileNameToStore;
-    }
+    //     return $fileNameToStore;
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -62,9 +62,13 @@ class AppSettingController extends Controller
         // Check file updated or not else save default file
         if ($request->hasFile('logo')) {
             // Save image to folder
-            $loc = '/public/settings';
-            $fileData = $request->file('logo');
-            $fileNameToStore = $this->uploadImage($fileData, $loc);
+            $img = $request->logo;
+            $number = rand(1, 999);
+            $numb = $number / 7;
+            $extension = $img->extension();
+            $filenamenew = date('Y-m-d') . "_." . $numb . "_." . $extension;
+            $fileNameToStore = '/img/' . $filenamenew;
+            $fileName = $img->move(public_path('appLogo' . '/' . 'img'), $filenamenew);
 
             // Delete previous file if update file
             Storage::delete('public/settings/' . $request->input('logo2'));
