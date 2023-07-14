@@ -23,7 +23,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img alt="Change Profile" title="Change Profile" {{-- src="{{ asset('storage/app/public/user_profile_photos/' . Auth::user()->profile_photo) }}" --}}
-                    src="{{ asset('public/adminpanel/images/cms.png') }}" class="img-circle elevation-2"
+                    src="@if ($appSettings) {{ asset('public/siteLogo' . $appSettings->logo) }} @endif" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
