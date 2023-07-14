@@ -23,15 +23,15 @@ trait ValidationRules
         $valid = $this->validate($request, [
             'firstName' => 'required|string|max:15',
             'lastName' => 'required|string|max:25',
-            'ssn' => 'string|max:9',
-            'houseNumber' => 'string|max:10',
-            'quadrant' => 'string|max:2',
-            'streetName' => 'string|max:26',
-            'streetType' => 'string',
+            'ssn' => 'nullable|string|max:9',
+            'houseNumber' => 'nullable|string|max:10',
+            'quadrant' => 'nullable|string|max:2',
+            'streetName' => 'nullable|string|max:26',
+            'streetType' => 'nullable|string',
             'city' => 'required|string|max:20',
             'state' => 'required|string|max:2',
-            'zip' => 'string|max:9',
-            'phone' => 'string|max:10',
+            'zip' => 'nullable|string|max:9',
+            'phone' => 'nullable|string|max:10',
             // 'pdfReportId' => 'required|mimes:pdf|max:10000',
         ]);
 

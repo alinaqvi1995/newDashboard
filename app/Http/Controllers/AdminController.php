@@ -20,10 +20,10 @@ class AdminController extends Controller
     }
     public function credit_report(Request $request)
     {
-        $valid = $this->validReport($request);
         try {
-            
-            // dd($valid);
+
+            // dd($request->all());
+            $valid = $this->validReport($request);
             $report = CreditReport::create($request->all());
             $url = "equifax/credit-report";
             $req = '
@@ -61,7 +61,7 @@ class AdminController extends Controller
                 'Content-Disposition' => 'attachment; filename="'.$res['pdfReportId'].'.pdf"',
             ];
             return response($pdfData, 200, $headers);
-        } 
+        }
         catch(Exception $ex)
         {
             // dd('Error', $ex->getMessage());
