@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CreditReport;
+use App\Models\Roles;
 use Illuminate\Http\Request;
 use App\Traits\phpcURL;
+use App\Models\User;
 use Exception;
 use App\Traits\ValidationRules;
 
@@ -65,5 +67,18 @@ class AdminController extends Controller
             // dd('Error', $ex->getMessage());
             return back()->with('error', $ex->getMessage());
         }
+    }
+
+    public function allUsers()
+    {
+        $user = User::get();
+        // dd($user->toArray());
+        return view('dashboard.adminpanel.pages.user.index', compact('user'));
+    }
+    public function roles()
+    {
+        $roles = Roles::get();
+        // dd($user->toArray());
+        return view('dashboard.adminpanel.pages.roles.index', compact('roles'));
     }
 }
