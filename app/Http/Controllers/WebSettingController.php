@@ -28,21 +28,21 @@ class WebSettingController extends Controller
      * @param string $loc
      * @return \Illuminate\Http\Response
      */
-    public function uploadImage($fileData, $loc)
-    {
-        // Get file name with extension
-        $fileNameWithExt = $fileData->getClientOriginalName();
-        // Get just file name
-        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        // Get just extension
-        $fileExtension = $fileData->extension();
-        // File name to store
-        $fileNameToStore = time() . '.' . $fileExtension;
-        // Finally Upload Image
-        $fileData->storeAs($loc, $fileNameToStore);
+    // public function uploadImage($fileData, $loc)
+    // {
+    //     // Get file name with extension
+    //     $fileNameWithExt = $fileData->getClientOriginalName();
+    //     // Get just file name
+    //     $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+    //     // Get just extension
+    //     $fileExtension = $fileData->extension();
+    //     // File name to store
+    //     $fileNameToStore = time() . '.' . $fileExtension;
+    //     // Finally Upload Image
+    //     $fileData->storeAs($loc, $fileNameToStore);
 
-        return $fileNameToStore;
-    }
+    //     return $fileNameToStore;
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -66,9 +66,19 @@ class WebSettingController extends Controller
         // Check file updated or not else save default file
         if ($request->hasFile('logo')) {
             // Save image to folder
-            $loc = '/public/settings';
-            $fileData = $request->file('logo');
-            $fileNameToStore = $this->uploadImage($fileData, $loc);
+            // $loc = '/public/settings';
+            // $fileData = $request->file('logo');
+            // $fileNameToStore = $this->uploadImage($fileData, $loc);
+            $img = $request->logo;
+            $number = rand(1, 999);
+            $numb = $number / 7;
+            $extension = $img->extension();
+            $filenamenew = date('Y-m-d') . "_." . $numb . "_." . $extension;
+            $fileNameToStore = 'SiteLogo' . '/' . 'img/' . $filenamenew;
+            $fileName = $img->move(public_path('siteLogo' . '/' . 'img'), $filenamenew);
+            // $user = User::where('id', auth()->user()->id)->first();
+            // $user->logo = $filenamepath;
+            // $user->save();
 
             // Delete previous file if update file
             Storage::delete('public/settings/' . $request->input('logo2'));

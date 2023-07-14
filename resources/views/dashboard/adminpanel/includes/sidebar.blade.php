@@ -7,7 +7,7 @@
             $appSettings = App\Models\WebSetting::first();
             // dd($appSettings->name);
         @endphp
-        <img src="@if ($appSettings) {{ asset('public/website') . '/settings/' . $appSettings->logo }} @endif"
+        <img src="@if ($appSettings) {{ asset('public/siteLogo' . $appSettings->logo) }} @endif"
             alt="CMS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">
             @if ($appSettings)
