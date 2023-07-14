@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/admin') }}" class="brand-link">
-        <img src="{{ asset('adminpanel/images/cms.png') }}"
+        <img src="{{ asset('public/adminpanel/images/cms.png') }}"
             alt="CMS Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">
             {{-- @if ($appSettings)
@@ -18,7 +18,7 @@
             <div class="image">
                 <img alt="Change Profile" title="Change Profile"
                     {{-- src="{{ asset('storage/app/public/user_profile_photos/' . Auth::user()->profile_photo) }}" --}}
-                    src="{{ asset('adminpanel/images/cms.png') }}"
+                    src="{{ asset('public/adminpanel/images/cms.png') }}"
                     class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
