@@ -74,7 +74,7 @@ class WebSettingController extends Controller
             $numb = $number / 7;
             $extension = $img->extension();
             $filenamenew = date('Y-m-d') . "_." . $numb . "_." . $extension;
-            $fileNameToStore = 'img/' . $filenamenew;
+            $fileNameToStore = '/img/' . $filenamenew;
             $fileName = $img->move(public_path('siteLogo' . '/' . 'img'), $filenamenew);
             // $user = User::where('id', auth()->user()->id)->first();
             // $user->logo = $filenamepath;
