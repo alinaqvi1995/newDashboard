@@ -1,40 +1,43 @@
  <!-- Main Navbar -->
- <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-     <ul class="navbar-nav border-left flex-row ">
-         <li class="nav-item dropdown">
-             <a class="nav-link dropdown-toggle text-nowrap px-3 d-flex align-items-center" data-toggle="dropdown"
-                 href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                 <img class="user-avatar rounded-circle mr-2" src="{{ asset('imgs/fav-icon.png') }}"
-                     {{-- <img class="user-avatar rounded-circle mr-2" src="{{ asset('adminpanel/images/avatar/dummy.png') }}" --}} alt="User Avatar">
-                 <span class="d-none d-md-inline-block">{{ Auth::user()->name }}</span>
-             </a>
-             <div class="dropdown-menu dropdown-menu-small">
-                 {{-- <a class="dropdown-item" href="user-profile-lite.html">
-                      <i class="material-icons">&#xE7FD;</i> Profile</a>
-                    <a class="dropdown-item" href="components-blog-posts.html">
-                      <i class="material-icons">vertical_split</i> Blog Posts</a>
-                    <a class="dropdown-item" href="add-new-post.html">
-                      <i class="material-icons">note_add</i> Add New Post</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#">
-                      <i class="material-icons text-danger">&#xE879;</i> Logout </a> --}}
+ <nav class="main-header navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ route('home') }}" class="nav-link"> Dashboard </a>
+        </li>
+    </ul>
 
-                 <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                     onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-                         class="material-icons text-danger">&#xE879;</i>Logout</a>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fas fa-user mr-2"></i> HHI  Admin
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                {{-- <a href="https://admin.hoyhoyibiza.com/admin/user/edit/1" class="dropdown-item">
+                    <i class="fas fa-user-edit mr-2"></i> Profile
+                </a> --}}
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();" class="dropdown-item">
+                    <i class="fas fa-users mr-2"></i> Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
 
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                     @csrf
-                 </form>
-             </div>
-         </li>
-     </ul>
-     <nav class="nav">
-         <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
-             data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
-             <i class="material-icons">&#xE5D2;</i>
-         </a>
-     </nav>
- </nav>
- </div>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+
  <!-- / .main-navbar -->
