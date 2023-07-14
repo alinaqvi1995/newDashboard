@@ -37,7 +37,7 @@ class AdminController extends Controller
         ';
         $auth = 'Authorization: Bearer '.auth()->user()->api_token;
         $res = $this->postCurl($url,$req,$auth);
-        // dd($res);
+        dd($res);
         $report->pdfReportId = $res['pdfReportId'];
         $report->save();
         $curl = curl_init();
