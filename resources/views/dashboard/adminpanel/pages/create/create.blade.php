@@ -27,6 +27,8 @@
                     <div class="col-md-12">
                         <!-- Messages -->
 
+                        @include('dashboard.adminpanel.includes.messages')
+
                         <!-- general form elements -->
                         <div class="card">
                             <div class="card-header">
@@ -40,20 +42,23 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="firstName">First Name</label>
-                                        <input type="text" name="firstName" class="form-control" value=""
-                                            id="firstName" placeholder="Enter First name" maxlength="15" required>
+                                        <input type="text" name="firstName" value="{{ old('firstName') }}"
+                                            class="form-control" value="" id="firstName"
+                                            placeholder="Enter First name" maxlength="15" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="lastName">Last Name</label>
-                                        <input type="text" name="lastName" class="form-control" value=""
-                                            id="lastName" placeholder="Enter Last name" maxlength="25" required>
+                                        <input type="text" name="lastName" value="{{ old('lastName') }}"
+                                            class="form-control" value="" id="lastName" placeholder="Enter Last name"
+                                            maxlength="25" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="ssn">SSN</label>
-                                        <input type="text" name="ssn" class="form-control" value=""
-                                            id="ssn" placeholder="Enter SSN" maxlength="9">
+                                        <input type="text" name="ssn" value="{{ old('ssn') }}"
+                                            class="form-control" value="" id="ssn" placeholder="Enter SSN"
+                                            maxlength="9">
                                     </div>
 
 
@@ -61,53 +66,62 @@
                                         <label for="dob">Date Of Birth</label>
                                         <div class="date-selector">
                                             <label id="doblb"></label>
-                                            <input type="date" name="dob" class="form-control"
-                                                data-date-format="YYYY MM DD" id="dob"
+                                            <input type="date" name="dob" value="{{ old('dob') }}"
+                                                class="form-control" data-date-format="YYYY MM DD" id="dob"
                                                 placeholder="Enter Date Of Birth">
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <label for="houseNumber">House Number</label>
-                                        <input type="text" name="houseNumber" class="form-control" value=""
-                                            id="houseNumber" placeholder="Enter House Number" maxlength="10">
+                                        <input type="text" name="houseNumber" value="{{ old('houseNumber') }}"
+                                            class="form-control" value="" id="houseNumber"
+                                            placeholder="Enter House Number" maxlength="10">
                                     </div>
                                     <div class="form-group">
                                         <label for="quadrant">Quadrant</label>
-                                        <input type="text" name="quadrant" class="form-control" value=""
-                                            id="quadrant" placeholder="Enter Quadrant" maxlength="2">
+                                        <input type="text" name="quadrant" value="{{ old('quadrant') }}"
+                                            class="form-control" value="" id="quadrant" placeholder="Enter Quadrant"
+                                            maxlength="2">
                                     </div>
                                     <div class="form-group">
                                         <label for="streetName">Street Name</label>
-                                        <input type="text" name="streetName" class="form-control" value=""
-                                            id="streetName" placeholder="Enter Street Name" maxlength="26">
+                                        <input type="text" name="streetName" value="{{ old('streetName') }}"
+                                            class="form-control" value="" id="streetName"
+                                            placeholder="Enter Street Name" maxlength="26">
                                     </div>
                                     <div class="form-group">
                                         <label for="streetType">Street Type</label>
-                                        <input type="text" name="streetType" class="form-control" value=""
-                                            id="streetType" placeholder="Enter Street Type">
+                                        <input type="text" name="streetType" value="{{ old('streetType') }}"
+                                            class="form-control" value="" id="streetType"
+                                            placeholder="Enter Street Type">
                                     </div>
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" name="city" class="form-control" value=""
-                                            id="city" placeholder="Enter City" maxlength="20" required>
+                                        <input type="text" name="city" value="{{ old('city') }}"
+                                            class="form-control" value="" id="city" placeholder="Enter City"
+                                            maxlength="20" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="state">State</label>
-                                        <input type="text" name="state" class="form-control" value=""
-                                            id="state" placeholder="Enter State" maxlength="2" required>
+                                        <input type="text" name="state" value="{{ old('state') }}"
+                                            class="form-control" value="" id="state" placeholder="Enter State"
+                                            maxlength="2" required>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="zip">ZIP Code</label>
-                                        <input type="text" name="zip" class="form-control" value=""
-                                            id="zip" placeholder="Enter ZIP Code" maxlength="9">
+                                        <input type="text" name="zip" value="{{ old('zip') }}"
+                                            class="form-control" value="" id="zip"
+                                            placeholder="Enter ZIP Code" maxlength="9">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phone">Phone Number</label>
-                                        <input type="text" name="phone" class="form-control" value=""
-                                            id="phone" placeholder="Enter Phone Number" maxlength="10">
+                                        <input type="text" name="phone" value="{{ old('phone') }}"
+                                            class="form-control" value="" id="phone"
+                                            placeholder="Enter Phone Number" maxlength="10"
+                                            onkeypress='return isNumberKey(event)'>
                                     </div>
 
 
@@ -166,6 +180,13 @@
             let dstring = `${d.getFullYear()}-${("0" + (d.getMonth() + 1)).slice(-2)}-${("0" + d.getDate()).slice(-2)}`;
 
             return dstring;
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
         }
     </script>
 @endsection

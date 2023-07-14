@@ -19,8 +19,7 @@ trait ValidationRules
 
     public function validReport($request)
     {
-        dd('ok');
-        // $this->attributes['slug'] = Str::slug($image, config('roles.separator'));
+        // dd('ok');
         $valid = $this->validate($request, [
             'firstName' => 'required|string|max:15',
             'lastName' => 'required|string|max:25',
