@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\CreditReport;
 use Illuminate\Http\Request;
 use App\Traits\phpcURL;
+use App\Traits\ValidationRules;
 
 class AdminController extends Controller
 {
     use phpcURL;
+    use ValidationRules;
     public function create(Request $request)
     {
         return view('dashboard.adminpanel.pages.create.create');
     }
     public function credit_report(Request $request)
     {
+        $valid = $this->validReport($request->all);
         $report = CreditReport::create($request->all());
         $url = "equifax/credit-report";
         $req = '
